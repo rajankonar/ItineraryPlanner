@@ -40,12 +40,12 @@ export default function ItineraryPlanner() {
       <h1 className="text-2xl font-bold mb-4 text-center">Itinerary Planner</h1>
       <div className="flex flex-col gap-4 mb-4">
         <Input
-          placeholder="From (e.g., Vashi)"
+          placeholder="From (e.g., Navi Mumbai)"
           value={from}
           onChange={(e) => setFrom(e.target.value)}
         />
         <Input
-          placeholder="To (e.g., Ooty)"
+          placeholder="To (e.g., Goa)"
           value={to}
           onChange={(e) => setTo(e.target.value)}
         />

@@ -33,27 +33,6 @@ app.post("/api/itinerary", async (req, res) => {
       ],
     })
   });
-  const response2 = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.AGENTICA_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "deepcoder-14b-preview",
-      messages: [
-        {
-          role: "system",
-          content: "You are a travel assistant that builds day-by-day road trip itineraries.",
-        },
-        {
-          role: "user",
-          content: `Plan a road trip itinerary from ${from} to ${to}, driving up to 8.5 hours per day. Include stops and day-wise descriptions.`,
-        },
-      ],
-    }),
-  });
-
   const data = await response.json();
   res.json(data);
 });
