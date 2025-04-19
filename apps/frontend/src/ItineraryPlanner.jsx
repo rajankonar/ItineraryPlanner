@@ -14,7 +14,8 @@ export default function ItineraryPlanner() {
     if (!from || !to) return;
     setLoading(true);
 
-    const res = await fetch("http://localhost:3001/api/itinerary", {
+    //const res = await fetch("http://localhost:3001/api/itinerary", {
+    const res = await fetch("https://itinerary-planner-server.vercel.app/api/itinerary", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
