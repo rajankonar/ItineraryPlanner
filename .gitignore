@@ -47,5 +47,6 @@ components/**/*.jsx
 .eslintcache
 .node-version
 .node
+.turbo
 
 .env
