@@ -1,0 +1,18 @@
+{
+  "name": "itinerary-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.js",
+    "build": "esbuild server.js --bundle --platform=node --outfile=dist/index.js --external:express --external:cors"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.11"
+  }
+}

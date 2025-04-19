@@ -1,0 +1,17 @@
+{
+  "name": "itinerary-turbo",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.2",
+    "turbo": "latest"
+  },
+  "packageManager": "npm@11.2.0"
+}
