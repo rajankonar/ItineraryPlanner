@@ -8,8 +8,11 @@ It calls "agentica-org/deepcoder-14b-preview:free" model, takes from and to para
 
 
 ## LLM Reference
-
 ```
   https://openrouter.ai/agentica-org/deepcoder-14b-preview:free
 ```
 
+## Demo 
+```
+  https://itinerary-planner-ochre.vercel.app/
+```
