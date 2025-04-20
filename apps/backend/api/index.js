@@ -2,6 +2,8 @@ var express = require('express');
 
 var indexRouter = require('../server');
 
+const serverless = require('serverless-http');
+
 var app = express();
 
 const whitelist = [
@@ -30,4 +32,4 @@ app.use(setContext);
 
 app.use('/', indexRouter);
 
-module.exports = app;
+module.exports = serverless(app);
