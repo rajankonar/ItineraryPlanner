@@ -7,7 +7,10 @@ dotenv.config();
 
 const app = express();
 let corsOptions = {
-  origin: ["http://localhost:5174", "https://itinerary-planner-ochre.vercel.app"],
+  origin: [
+    "http://localhost:5174",
+    "https://itinerary-planner-ochre.vercel.app",
+  ],
 };
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -34,7 +37,18 @@ app.post("/api/itinerary", async (req, res) => {
           },
           {
             role: "user",
-            content: `Plan a road trip itinerary from ${from} to ${to}, driving up to 8.5 hours per day. Include stops and day-wise descriptions.`,
+            content: `Plan a road trip itinerary in english language from ${from} to ${to}, driving up to 8.5 hours per day. Include stops and day-wise descriptions and provide data only as json object, directly share object{} like in below format
+            {
+              "packingTips":"things to carray and packing tips in array",
+              "notes: "give notes in array",
+              "itinerary":"provide array of day wise object like 
+              {day: "which day", "start":"start location","end": "end location","drivingTime":"give driving time taken in day 1",
+              "distance":"give distance","activities": "share activities in array",
+              "foodSuggestions":"give food suggestions in object like {"breakfast":"give breakfast in array","lunch":"lunch in array","dinner": "dinner in array"}","route": "give route", "staySuggestions":"give stay suggestions in array"}"
+            }
+            and give data in proper format and translate the values in english
+            
+            `,
           },
         ],
       }),
