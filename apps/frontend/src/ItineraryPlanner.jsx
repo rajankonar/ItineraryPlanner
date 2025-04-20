@@ -13,6 +13,7 @@ export default function ItineraryPlanner() {
   const [shakeFrom, setShakeFrom] = useState(false);
   const [shakeTo, setShakeTo] = useState(false);
   const generateItinerary = async () => {
+    setTripData(null)
     const newErrors = {
       from: from.trim() === "" ? "Please enter a starting location" : "",
       to: to.trim() === "" ? "Please enter a destination" : "",
@@ -49,8 +50,10 @@ export default function ItineraryPlanner() {
 
       const data = await res.json();
       if (res.status == 200) {
-        const content = data.choices?.[0]?.message?.content || "";
-        let jsonContent = content.replace("```json", "").replace("```", "");
+        //const content = data.choices?.[0]?.message?.content || "";
+        //let jsonContent = content.replace("```json", "").replace("```", "");
+
+        let jsonContent = data.replace("```json", "").replaceAll("```", "");
         jsonContent = JSON.parse(jsonContent);
         setTripData(jsonContent);
       }
@@ -58,6 +61,8 @@ export default function ItineraryPlanner() {
       alert("Something went wrong, please try again!");
     }
     setLoading(false);
+    setFrom("");
+    setTo("");
   };
 
   return (
@@ -142,7 +147,7 @@ export default function ItineraryPlanner() {
                 <Card className="mb-4 shadow-md">
                   <CardHeader>
                     <CardTitle>
-                      Day {day.day}: {day.start} → {day.end}
+                      {day.day}: {day.start} → {day.end}
                     </CardTitle>
                     <p className="text-sm text-muted-foreground">
                       <strong>Route :</strong> {day.route}
